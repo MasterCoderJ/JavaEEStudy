@@ -1,0 +1,15 @@
+package com.jspshop.domain;
+
+import lombok.Data;
+
+@Data
+public class Product {
+	
+	private int product_idx;
+	private Category category; //mybatis에서 부모를 association처리
+	private String product_name;
+	private String product_brand;
+	private int price;
+	private int discount;
+	private String detail;
+}

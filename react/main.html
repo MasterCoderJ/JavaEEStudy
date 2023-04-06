@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        function Row(props){
+            return(
+                <tr>
+                    <td>No</td>    
+                    <td><a href="#" onClick={()=>getDetail(props.notice)}>{props.notice.title}</a></td>    
+                    <td>{props.notice.writer}</td>    
+                    <td>{props.notice.hit}</td>    
+                </tr>
+
+            );
+        }
+    </script>
+
+    <script type="text/JavaScript">
+
+        function getList(){
+            url:"noitce/list.jsp",
+            type:"get",
+            success:function(result, status, xhr){
+                let noticeList= JSON.parse(result);
+                printRow(noticeList);
+            }
+        }
+
+        function regist(){
+            let title= $("#title").val();
+            let writer=$("#writer").val();
+            let content=$("#content").val();
+
+            $.ajax({
+                url:"/notice/regist.jsp",
+                type:"post",
+                dataType:"json",
+                data : {
+                    "title":title,
+                    "writer":writer,
+                    "content":content
+                },
+                success:function(result){
+                    car status= result.state;
+                }
+            });
+        }
+        
+        $(function(){
+            getList();
+            $("#bt_regist").click(fucntion(){
+                regist();
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <form id="form1">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="title" placeholder="제목">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="writer" placeholder="작성자">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">내용:</label>
+                        <textarea class="form-control" rows="5" id="content"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" id="bt_regist">등록</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>No</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>내용</th>
+                            <th>작성일</th>
+                            <th>조회수</th>
+                        </tr>
+                    </thead>
+                    <tbody id="root"></tbody>
+                </table>
+            </div>
+            <div class="col-md-2">
+                <form id="form2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="title">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="writer">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">내용:</label>
+                        <textarea class="form-control" rows="5" name="content"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" id="bt_regist">수정</button>
+                        <button type="button" class="btn btn-primary" id="bt_regist">삭제</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

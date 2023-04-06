@@ -1,0 +1,35 @@
+<%@page import="store.repository.StoreDAO"%>
+<%@page import="store.domain.Category"%>
+<%@page import="store.domain.Store"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%!
+	StoreDAO storeDAO=new StoreDAO();
+%>
+<%
+	request.setCharacterEncoding("utf-8");
+	
+	//파라미터 받기
+	String lati=request.getParameter("lati");
+	String longi=request.getParameter("longi");
+	String category_idx=request.getParameter("category_idx");
+	String store_name=request.getParameter("store_name");
+	
+	//System.out.print("lati = "+lati);
+	//System.out.print("longi = "+longi);
+	//System.out.print("category_idx = "+category_idx);
+	//System.out.print("store_name = "+store_name);
+	
+	Store store=new Store();
+	store.setLati(Double.parseDouble(lati));
+	store.setLongi(Double.parseDouble(longi));
+	store.setStore_name(store_name);
+	
+	Category category=new Category();
+	category.setCategory_idx(Integer.parseInt(category_idx));
+	
+	//생성된 Category를 Store dto에 다시 대입
+	store.setCategory(category);
+	int result=storeDAO.insert(store);
+	
+	out.print(result);
+%>

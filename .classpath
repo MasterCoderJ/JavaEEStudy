@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Noticeapp/WEB-INF/src"/>
+	<classpathentry kind="lib" path="Noticeapp/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="webapp0102/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="webapp0102prac/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="webapp0103/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="webapp0103prac/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="webapp0104/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="webapp0104prac/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="output" path="Noticeapp/WEB-INF/classes"/>
+</classpath>

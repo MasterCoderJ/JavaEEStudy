@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrapper{
+            width: 500px;
+            border: 2px solid gray;
+            border-radius: 5px;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+
+        function regist(){
+            let form1 = document.getElementById("form1");
+            form1.action = "/member/insert.jsp";
+            form1.submit();
+
+        }
+
+        window.addEventListener("load", function(){
+            let bt = document.getElementById("bt");
+            bt.addEventListener("click", function(){
+                regist();
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" method="post">
+        <div id="wrapper">
+            <div>
+                <label for="m_id">ID</label>
+                <input type="text" name="id" m_id ="m_id">
+            </div>
+
+            <div>
+                <label for="m_pass">Pass</label>
+                <input type="password" name="pass" id="m_pass">
+            </div>
+
+            <div>
+                <label for="m_name">Name</label>
+                <input type="text" name="name" id="m_name">
+            </div>
+            
+            <div>
+                <button id="bt">등록</button>
+            </div>
+        </div>
+
+    </form>
+    
+</body>
+</html>

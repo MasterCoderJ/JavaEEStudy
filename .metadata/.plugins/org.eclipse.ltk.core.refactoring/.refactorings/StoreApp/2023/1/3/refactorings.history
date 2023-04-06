@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;store.util&apos; to &apos;Store/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;StoreApp&apos;&#x0D;&#x0A;- Destination element: &apos;Store/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;StoreApp/src/main/java/store.util&apos;" description="Copy package" destination="=Store/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;store.util" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1673768846451" version="1.0"/>
+</session>
